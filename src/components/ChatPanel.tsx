@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { generateCode } from '../api';
 
-export default function ChatPanel({ onSend }: any) {
+export default function ChatPanel({ onSend, currentCode }: any) {
   const [input, setInput] = useState('');
   const [chatLog, setChatLog] = useState<string[]>([]);
 
@@ -17,6 +17,7 @@ export default function ChatPanel({ onSend }: any) {
 Если компонент состоит из нескольких файлов, верни JSON с объектом files: { "имя_файла": "код" }.
 Не используй TypeScript-аннотации или локальные алиасы.  
 Описание компонента: "${input}"  
+Текущий код: "${JSON.stringify(currentCode)}"  
 Возьми все зависимости из npm.  
 Верни JSON с полями:
 - files: объект { "App.js": "...", "utils.js": "..." },

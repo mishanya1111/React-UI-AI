@@ -15,11 +15,12 @@ export default function App() {
     },
     dependencies: {},
   });
-
+  const [currentCode, setCurrentCode] = useState({});
+  
   return (
     <div className="grid grid-cols-2 gap-4 p-4 h-screen bg-gray-100 text-black">
-      <ChatPanel onSend={setData} />
-      <PreviewPanel data={data} />
+      <ChatPanel onSend={setData} currentCode={currentCode} />
+      <PreviewPanel data={data} onChange={(data) => setCurrentCode(data)} />
     </div>
   );
 }
